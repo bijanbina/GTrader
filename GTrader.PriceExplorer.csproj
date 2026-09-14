@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GTrader</RootNamespace>
+    <AssemblyName>GTrader.PriceExplorer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OutputPath>dist\</OutputPath>
+    <Optimize>true</Optimize>
+    <ApplicationManifest>src\app.manifest</ApplicationManifest>
+    <ApplicationIcon>assets\app.ico</ApplicationIcon>
+    <AppConfig>src\app.config</AppConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" /><Reference Include="System.Core" />
+    <Reference Include="System.Drawing" /><Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Net.Http" /><Reference Include="System.Web.Extensions" />
+    <Compile Include="src\*.cs" />
+    <EmbeddedResource Include="nasdaq_nyse_innovation_over_1b.txt"><LogicalName>GTrader.Symbols</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="data\companies.json"><LogicalName>GTrader.Companies</LogicalName></EmbeddedResource>
+    <Content Include="nasdaq_nyse_innovation_over_1b.txt"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+    <Content Include="data\companies.json"><Link>companies.json</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+    <Content Include="README.md"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+    <Content Include="nasdaq_nyse_innovation_over_1b.sources.md"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

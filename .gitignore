@@ -1,0 +1,10 @@
+dist/
+/GTrader.PriceExplorer.zip
+obj/
+bin/
+tests/*.exe
+tests/*.exe.config
+tests/bulk-results.json
+tests/bulk-results.json.tmp
+tests/ui-smoke/
+*.pdb
